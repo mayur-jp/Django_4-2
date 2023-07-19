@@ -1,0 +1,6 @@
+.home {
+    min-height: 100vh;
+}
+.completed td, .completed th{
+    background-color: #D1D1D1;
+}

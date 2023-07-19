@@ -1,0 +1,28 @@
+<div id="todoCard" class="card-body p-4">
+    <h4 class="text-center my-3 pb-3">To Do App</h4>
+    <form id="todo-form" hx-post="{% url 'create_todo' %}" hx-target="#todoCard"
+        class="row g-3 justify-content-center align-items-center mb-4 pb-2">
+        {% csrf_token %}
+        <div class="col-12">
+            <div class="form-outline">
+                <input type="text" name="title" id="title" class="form-control form-control-lg" required />
+                <label class="form-label" for="form1">Enter a task here</label>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="form-outline flex-fill">
+                <textarea type="text" name="description" id="description"
+                    class="form-control form-control-lg"></textarea>
+                <label class="form-label" for="form3">Enter description here</label>
+            </div>
+        </div>
+
+        <div class="col-12 text-end">
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+    </form>
+
+    <div id="todoList">
+        {% include 'todo-list.html' %}
+    </div>
+</div>

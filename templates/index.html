@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %} Home {% endblock %}
+
+{% block content %}
+<section class="home py-5 d-flex align-items-center" style="background-color: #eee;">
+    <div class="row d-flex justify-content-center align-items-center h-100 w-100 m-0">
+        <div class="col col-lg-11 col-xl-9">
+            <div class="card rounded-3">
+                {% include 'todo-section.html' %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block js_script %}
+<script>
+    document.body.addEventListener('htmx:configRequest', (event) => {
+        event.detail.headers['X-CSRFToken'] = '{{ csrf_token }}';
+    })
+</script>
+{% endblock %}

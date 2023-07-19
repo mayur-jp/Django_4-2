@@ -1,0 +1,39 @@
+{% if todos %}
+<table class="table mb-4">
+    <thead>
+        <tr>
+            <th scope="col">No.</th>
+            <th scope="col">Todo item</th>
+            <th scope="col">Description</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for todo in todos %}
+        <tr class="{% if todo.completed %} completed {% endif %}">
+            <th scope="row">1</th>
+            <td>{{ todo.title }}</td>
+            <td>{{ todo.description }}</td>
+            <td>
+                <div class="d-flex justify-content-center justify-content-md-start align-items-center flex-wrap">
+                    <div>
+                        <button type="submit" class="btn btn-danger my-1" hx-get="{% url 'delete_todo' todo.pk %}"
+                            hx-target="#todoList">Delete</button>
+                    </div>
+                    {% if todo.completed == False %}
+                    <div>
+                        <button type="submit" class="btn btn-success ms-1 my-1" hx-get="{% url 'mark_todo' todo.pk %}"
+                            hx-target="#todoList">Completed</button>
+                    </div>
+                    {% endif %}
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+
+<h5>Currently, you don't have any todos.</h5>
+
+{% endif %}

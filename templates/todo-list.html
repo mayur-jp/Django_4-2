@@ -11,7 +11,7 @@
     <tbody>
         {% for todo in todos %}
         <tr class="{% if todo.completed %} completed {% endif %}">
-            <th scope="row">1</th>
+            <th scope="row">{{ forloop.counter }}</th>
             <td>{{ todo.title }}</td>
             <td>{{ todo.description }}</td>
             <td>

@@ -28,6 +28,14 @@ $ cp .env.example .env
 ```
 Now add values in .env file
 
+Before starting the server, we need to run migrations.
+```sh
+$ python manage.py makemigrations
+```
+Now apply this migrations to the database.
+```sh
+$ python manage.py migrate
+```
 Once `pip` has finished downloading the dependencies:
 ```sh
 (env)$ python manage.py runserver
